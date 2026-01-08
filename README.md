@@ -1,75 +1,107 @@
-# Welcome to your Lovable project
+# RentPe - Property Rental Management Platform
 
-## Project info
+RentPe is a comprehensive property rental management platform designed to streamline the rental process for property owners, managers, and tenants. The platform provides an intuitive interface for managing properties, tracking rentals, processing payments, and facilitating communication between all stakeholders.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+### For Property Owners & Managers
+- **Property Management**: List and manage multiple properties with detailed information
+- **Tenant Management**: Track tenant information, lease agreements, and rental history
+- **Payment Processing**: Automated rent collection and payment tracking
+- **Maintenance Requests**: Streamlined maintenance request management
+- **Financial Reporting**: Comprehensive reports on income, expenses, and occupancy rates
 
-There are several ways of editing your application.
+### For Tenants
+- **Property Search**: Browse available rental properties with advanced filters
+- **Online Applications**: Submit rental applications digitally
+- **Payment Portal**: Secure online rent payment processing
+- **Maintenance Requests**: Easily submit and track maintenance requests
+- **Communication Hub**: Direct messaging with property managers
 
-**Use Lovable**
+## Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+This project is built with modern web technologies to ensure scalability, performance, and maintainability:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite for fast development and optimized builds
+- **UI Framework**: shadcn/ui components with Tailwind CSS
+- **State Management**: React Query for server state management
+- **Backend**: Supabase for database, authentication, and real-time features
+- **Maps Integration**: Mapbox GL for property location visualization
+- **Forms**: React Hook Form with Zod validation
+- **Styling**: Tailwind CSS with custom animations
+- **Icons**: Lucide React for consistent iconography
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn package manager
+- Supabase account for backend services
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/rentpe-v1.git
+   cd rentpe-v1
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Configure your Supabase credentials and other environment variables in the `.env` file.
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. **Open your browser**
+   Navigate to `http://localhost:5173` to view the application.
+
+## Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development environment
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality checks
+
+## Project Structure
+
+```
+rentpe-v1/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── hooks/         # Custom React hooks
+│   ├── lib/           # Utility functions and configurations
+│   ├── types/         # TypeScript type definitions
+│   └── styles/        # Global styles and Tailwind config
+├── public/            # Static assets
+├── supabase/          # Supabase migrations and functions
+└── docs/              # Project documentation
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## What technologies are used for this project?
+## Support
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-"# rentpe-v1" 
-"# rentpe-v1" 
+For support, please contact our team at support@rentpe.com or create an issue in the GitHub repository. 
