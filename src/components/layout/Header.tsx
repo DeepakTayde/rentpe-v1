@@ -128,6 +128,9 @@ export const Header = () => {
         isTransparent
           ? "bg-transparent py-5"
           : "bg-card/95 backdrop-blur-lg shadow-md py-3"
+      } ${
+        // Mobile-only: Enhanced shadow on scroll
+        isScrolled && !isTransparent ? "lg:shadow-md shadow-lg" : ""
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -245,9 +248,10 @@ export const Header = () => {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`lg:hidden p-2 rounded-lg transition-colors ${
+          className={`lg:hidden p-3 rounded-lg transition-colors touch-manipulation ${
             isTransparent ? "text-primary-foreground hover:bg-primary-foreground/10" : "text-foreground hover:bg-muted"
           }`}
+          aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -267,7 +271,7 @@ export const Header = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+                  className={`px-4 py-4 rounded-lg font-medium transition-colors touch-manipulation ${
                     location.pathname === link.href
                       ? "bg-accent/10 text-accent"
                       : "text-foreground hover:bg-muted"

@@ -50,30 +50,30 @@ export const RolesSection = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-muted/50">
+    <section className="py-16 md:py-20 lg:py-28 bg-muted/50">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Built for Everyone
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 md:mb-5 leading-tight">
             One Ecosystem,{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Multiple Roles
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Whether you're renting, owning, serving, or earning - RentPe has a place for you.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {roles.map((role, index) => (
             <motion.div
               key={role.title}
@@ -81,28 +81,28 @@ export const RolesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-card shadow-card hover:shadow-xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl bg-card shadow-card hover:shadow-xl transition-all duration-300 touch-manipulation"
             >
               {/* Gradient Border */}
               <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               
-              <div className="relative m-[2px] bg-card rounded-[14px] p-6 md:p-8">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center mb-5 shadow-md`}>
-                  <role.icon className="w-7 h-7 text-primary-foreground" />
+              <div className="relative m-[2px] bg-card rounded-[14px] p-5 md:p-6 lg:p-8">
+                <div className={`w-12 md:w-14 h-12 md:h-14 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center mb-4 md:mb-5 shadow-md`}>
+                  <role.icon className="w-6 md:w-7 h-6 md:h-7 text-primary-foreground" />
                 </div>
                 
-                <h3 className="font-display text-2xl font-semibold text-card-foreground mb-3">
+                <h3 className="font-display text-lg md:text-xl lg:text-2xl font-semibold text-card-foreground mb-2 md:mb-3 leading-tight">
                   {role.title}
                 </h3>
-                <p className="text-muted-foreground mb-5">
+                <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-5 leading-relaxed">
                   {role.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
                   {role.features.map((feature) => (
                     <span
                       key={feature}
-                      className="px-3 py-1 rounded-full bg-muted text-sm text-muted-foreground"
+                      className="px-2.5 md:px-3 py-1 rounded-full bg-muted text-xs md:text-sm text-muted-foreground"
                     >
                       {feature}
                     </span>
@@ -111,7 +111,7 @@ export const RolesSection = () => {
                 
                 <Button 
                   variant="outline" 
-                  className="group/btn gap-2"
+                  className="group/btn gap-2 w-full sm:w-auto py-3 md:py-2 touch-manipulation"
                   onClick={() => handleRoleClick(role.href)}
                 >
                   {role.cta}

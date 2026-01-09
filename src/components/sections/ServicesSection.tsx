@@ -73,30 +73,30 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-16 md:py-20 lg:py-28 bg-background">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
             Services at Your Doorstep
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 md:mb-5 leading-tight">
             Daily Services &{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Home Maintenance
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             From laundry to plumbing, get all household services with verified professionals and transparent pricing.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.name}
@@ -104,18 +104,18 @@ export const ServicesSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group p-5 md:p-6 rounded-2xl bg-card shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              className="group p-4 md:p-5 lg:p-6 rounded-2xl bg-card shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer touch-manipulation"
             >
-              <div className={`w-12 h-12 rounded-xl ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-6 h-6" />
+              <div className={`w-10 md:w-12 h-10 md:h-12 rounded-xl ${service.color} flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <service.icon className="w-5 md:w-6 h-5 md:h-6" />
               </div>
-              <h3 className="font-display text-lg font-semibold text-card-foreground mb-1">
+              <h3 className="font-display text-sm md:text-base lg:text-lg font-semibold text-card-foreground mb-1 leading-tight">
                 {service.name}
               </h3>
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-xs md:text-sm text-muted-foreground mb-2 leading-tight">
                 {service.description}
               </p>
-              <p className="text-sm font-semibold text-accent">
+              <p className="text-xs md:text-sm font-semibold text-accent">
                 {service.price}
               </p>
             </motion.div>
@@ -127,9 +127,9 @@ export const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-10 md:mt-12"
         >
-          <Button variant="gradient" size="lg" className="gap-2">
+          <Button variant="gradient" size="lg" className="gap-2 w-full sm:w-auto py-4 md:py-3 touch-manipulation">
             View All Services
             <ArrowRight className="w-5 h-5" />
           </Button>

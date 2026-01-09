@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { NotificationProvider } from "@/contexts/NotificationContext";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { AIAssistant } from "@/components/ai/AIAssistant";
+import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Properties from "./pages/Properties";
@@ -58,7 +59,8 @@ const App = () => (
           <Sonner />
           <AIAssistant />
           <BrowserRouter>
-            <Routes>
+            <Layout>
+              <Routes>
               {/* Public routes */}
               <Route path="/" element={<Index />} />
               <Route path="/properties" element={<Properties />} />
@@ -160,6 +162,7 @@ const App = () => (
               
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Layout>
           </BrowserRouter>
         </TooltipProvider>
       </NotificationProvider>

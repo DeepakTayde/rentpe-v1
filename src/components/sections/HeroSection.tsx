@@ -100,7 +100,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6"
           >
             Your Complete
             <br />
@@ -113,7 +113,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10"
+            className="text-base md:text-lg lg:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
             Rent smarter. Pay easier. Live better. One platform for renting, payments, maintenance, and daily services.
           </motion.p>
@@ -126,26 +126,26 @@ export const HeroSection = () => {
             className="max-w-2xl mx-auto"
           >
             <div className="bg-card/95 backdrop-blur-lg rounded-2xl p-3 shadow-xl">
-              <div className="flex flex-col sm:flex-row gap-3">
-                {/* City Selector */}
+              <div className="flex flex-col gap-3">
+                {/* City Selector - Mobile Optimized */}
                 <div className="relative flex-shrink-0">
                   <button
                     onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors w-full sm:w-auto"
+                    className="flex items-center gap-2 px-4 py-4 md:py-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors w-full touch-manipulation"
                   >
                     <MapPin className="w-5 h-5 text-accent" />
                     <span className="font-medium text-foreground">{selectedCity}</span>
-                    <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isCityDropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ml-auto ${isCityDropdownOpen ? "rotate-180" : ""}`} />
                   </button>
                   
                   {isCityDropdownOpen && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-full left-0 mt-2 w-full sm:w-64 bg-card rounded-xl shadow-lg border border-border overflow-hidden z-20 max-h-80 overflow-y-auto"
+                      className="absolute top-full left-0 mt-2 w-full bg-card rounded-xl shadow-lg border border-border overflow-hidden z-20 max-h-80 overflow-y-auto"
                     >
                       {citiesLoading ? (
-                        <div className="px-4 py-3 flex items-center gap-2 text-muted-foreground">
+                        <div className="px-4 py-4 md:py-3 flex items-center gap-2 text-muted-foreground">
                           <Loader2 className="w-4 h-4 animate-spin" />
                           Loading cities...
                         </div>
@@ -154,7 +154,7 @@ export const HeroSection = () => {
                           <button
                             key={city.id}
                             onClick={() => handleCitySelect(city.name)}
-                            className={`w-full px-4 py-3 text-left text-sm hover:bg-muted transition-colors flex items-center justify-between ${
+                            className={`w-full px-4 py-4 md:py-3 text-left text-sm hover:bg-muted transition-colors flex items-center justify-between touch-manipulation ${
                               selectedCity === city.name ? "bg-accent/10 text-accent" : "text-foreground"
                             }`}
                           >
@@ -169,7 +169,7 @@ export const HeroSection = () => {
                   )}
                 </div>
 
-                {/* Search Input with Suggestions */}
+                {/* Search Input with Suggestions - Mobile Optimized */}
                 <div className="flex-1 relative" ref={searchRef}>
                   <input
                     type="text"
@@ -186,18 +186,18 @@ export const HeroSection = () => {
                       }
                     }}
                     placeholder="Search by locality, landmark, or property name..."
-                    className="w-full px-4 py-3 rounded-xl bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
+                    className="w-full px-4 py-4 md:py-3 rounded-xl bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 text-base md:text-sm touch-manipulation"
                   />
                   
-                  {/* Suggestions Dropdown */}
+                  {/* Suggestions Dropdown - Mobile Optimized */}
                   {showSuggestions && (suggestions.length > 0 || suggestionsLoading) && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-full left-0 right-0 mt-2 bg-card rounded-xl shadow-lg border border-border overflow-hidden z-20"
+                      className="absolute top-full left-0 right-0 mt-2 bg-card rounded-xl shadow-lg border border-border overflow-hidden z-20 max-h-60 md:max-h-80 overflow-y-auto"
                     >
                       {suggestionsLoading ? (
-                        <div className="px-4 py-3 flex items-center gap-2 text-muted-foreground">
+                        <div className="px-4 py-4 md:py-3 flex items-center gap-2 text-muted-foreground">
                           <Loader2 className="w-4 h-4 animate-spin" />
                           Searching...
                         </div>
@@ -206,12 +206,12 @@ export const HeroSection = () => {
                           <button
                             key={`${suggestion.type}-${suggestion.id || index}`}
                             onClick={() => handleSuggestionClick(suggestion)}
-                            className="w-full px-4 py-3 text-left text-sm hover:bg-muted transition-colors flex items-center gap-3"
+                            className="w-full px-4 py-4 md:py-3 text-left text-sm hover:bg-muted transition-colors flex items-center gap-3 touch-manipulation"
                           >
                             {suggestion.type === "property" ? (
-                              <Building className="w-4 h-4 text-accent" />
+                              <Building className="w-4 h-4 text-accent flex-shrink-0" />
                             ) : (
-                              <MapPin className="w-4 h-4 text-muted-foreground" />
+                              <MapPin className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             )}
                             <div className="flex-1 min-w-0">
                               <div className="text-foreground truncate">{suggestion.name}</div>
@@ -229,27 +229,28 @@ export const HeroSection = () => {
                   )}
                 </div>
 
-                {/* Search Button */}
-                <Button 
-                  variant="hero" 
-                  size="lg" 
-                  className="gap-2 sm:flex-shrink-0"
-                  onClick={handleSearch}
-                >
-                  <Search className="w-5 h-5" />
-                  <span className="hidden sm:inline">Search</span>
-                </Button>
+                {/* Action Buttons - Mobile Optimized */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    variant="hero" 
+                    size="lg" 
+                    className="gap-2 flex-1 py-4 md:py-3 touch-manipulation"
+                    onClick={handleSearch}
+                  >
+                    <Search className="w-5 h-5" />
+                    Search Properties
+                  </Button>
 
-                {/* AI Search Button */}
-                <Button 
-                  variant="default" 
-                  size="lg" 
-                  className="gap-2 sm:flex-shrink-0 bg-gradient-to-r from-accent to-sky-400 hover:from-accent/90 hover:to-sky-400/90"
-                  onClick={() => setShowAISearch(true)}
-                >
-                  <Sparkles className="w-5 h-5" />
-                  <span className="hidden sm:inline">Ask AI</span>
-                </Button>
+                  <Button 
+                    variant="default" 
+                    size="lg" 
+                    className="gap-2 flex-1 py-4 md:py-3 bg-gradient-to-r from-accent to-sky-400 hover:from-accent/90 hover:to-sky-400/90 touch-manipulation"
+                    onClick={() => setShowAISearch(true)}
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    Ask AI Assistant
+                  </Button>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -257,16 +258,17 @@ export const HeroSection = () => {
           {/* AI Search Modal */}
           <AISearchModal open={showAISearch} onOpenChange={setShowAISearch} />
 
-          {/* Quick Actions */}
+          {/* Quick Actions - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-wrap items-center justify-center gap-4 mt-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
           >
             <Button 
               variant="hero-outline" 
               size="lg"
+              className="w-full sm:w-auto py-4 md:py-3 touch-manipulation"
               onClick={() => navigate("/list-property")}
             >
               List Your Property
@@ -274,18 +276,19 @@ export const HeroSection = () => {
             <Button 
               variant="hero-outline" 
               size="lg"
+              className="w-full sm:w-auto py-4 md:py-3 touch-manipulation"
               onClick={() => navigate("/select-role?role=vendor")}
             >
               Join as Vendor
             </Button>
           </motion.div>
 
-          {/* Trust Stats */}
+          {/* Trust Stats - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-primary-foreground/10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-primary-foreground/10"
           >
             {[
               { value: "50K+", label: "Verified Properties" },
@@ -294,10 +297,10 @@ export const HeroSection = () => {
               { value: "4.8★", label: "App Rating" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-display font-bold text-accent mb-1">
+                <div className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-accent mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
+                <div className="text-xs md:text-sm text-primary-foreground/70 leading-tight">{stat.label}</div>
               </div>
             ))}
           </motion.div>
